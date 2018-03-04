@@ -5,9 +5,13 @@ import (
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	sc "github.com/hyperledger/fabric/protos/peer"
+
+	"github.com/nmatsui/fabric-payment-sample/contracts"
 )
 
 var logger = shim.NewLogger("main")
+
+var accountContract = new(contracts.AccountContract)
 
 type EntryPoint struct {
 }
@@ -20,6 +24,18 @@ func (s *EntryPoint) Init(APIstub shim.ChaincodeStubInterface) sc.Response {
 func (s *EntryPoint) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response {
 	function, args := APIstub.GetFunctionAndParameters()
 
+	switch function {
+	case "listAccount":
+		return accountContract.ListAccount(APIstub, args)
+	case "createAccount":
+		return accountContract.CreateAccount(APIstub, args)
+	case "retrieveAccount":
+		return accountContract.RetrieveAccount(APIstub, args)
+	case "updateAccountName":
+		return accountContract.UpdateAccountName(APIstub, args)
+	case "deleteAccount":
+		return accountContract.DeleteAccount(APIstub, args)
+	}
 	msg := fmt.Sprintf("No such function. function = %s, args = %s", function, args)
 	logger.Error(msg)
 	return shim.Error(msg)
