@@ -52,3 +52,20 @@ func GetAccountNo(APIstub shim.ChaincodeStubInterface) (string, error) {
 	}
 	return no, nil
 }
+
+func GetEventNo(APIstub shim.ChaincodeStubInterface) (string, error) {
+	var no string
+	for {
+		no = getRandomString(16, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+		existing, err := APIstub.GetState(no)
+		if err != nil {
+			logger.Error(fmt.Sprintf("APIstub.GetState Error. error = %s\n", err))
+			return "", err
+		} else if existing != nil {
+			logger.Warning(fmt.Sprintf("this no exists, no = %s\n", no))
+		} else {
+			break
+		}
+	}
+	return no, nil
+}
