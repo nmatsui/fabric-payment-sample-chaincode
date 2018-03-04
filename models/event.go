@@ -14,7 +14,7 @@ type AccountState struct {
 type Event struct {
 	ModelType        types.ModelType `json:"model_type"`
 	EventType        types.EventType `json:"event_type"`
-	No               string          `json:"id"`
+	No               string          `json:"no"`
 	Amount           int             `json:"amount"`
 	FromAccountState *AccountState   `json:"from_account"`
 	ToAccountState   *AccountState   `json:"to_account"`
