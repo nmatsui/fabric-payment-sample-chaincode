@@ -13,6 +13,7 @@ var logger = shim.NewLogger("main")
 
 var accountContract = new(contracts.AccountContract)
 var eventContract = new(contracts.EventContract)
+var historyContract = new(contracts.HistoryContract)
 
 type EntryPoint struct {
 }
@@ -44,6 +45,8 @@ func (s *EntryPoint) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response {
 		return eventContract.Remit(APIstub, args)
 	case "withdraw":
 		return eventContract.Withdraw(APIstub, args)
+	case "listHistory":
+		return historyContract.ListHistory(APIstub, args)
 	}
 	msg := fmt.Sprintf("No such function. function = %s, args = %s", function, args)
 	logger.Error(msg)
