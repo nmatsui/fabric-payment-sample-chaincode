@@ -38,6 +38,7 @@ func (ac *AccountContract) ListAccount(APIstub shim.ChaincodeStubInterface, args
 		logger.Error(err.Error())
 		return shim.Error(err.Error())
 	}
+	logger.Infof("Query string = '%s'", string(queryBytes))
 	resultsIterator, err := APIstub.GetQueryResult(string(queryBytes))
 	if err != nil {
 		logger.Error(err.Error())

@@ -1,0 +1,8 @@
+{
+  "index": {
+    "fields": ["model_type"]
+  },
+  "ddoc": "indexAccountDoc",
+  "name":"indexAccount",
+  "type":"json"
+}
