@@ -2,7 +2,7 @@
   "index": {
     "fields": ["model_type"]
   },
-  "ddoc": "indexAccountDoc",
-  "name":"indexAccount",
+  "ddoc": "modelIndexDoc",
+  "name":"modelIndex",
   "type":"json"
 }
