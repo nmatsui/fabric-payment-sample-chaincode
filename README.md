@@ -9,7 +9,7 @@ TBD
 TBD
 
 ## License
-[Apache License, Version 2.0](./LISENCE)
+[Apache License, Version 2.0](/LICENSE)
 
 ## Copyright
 Copyright (c) 2018 Nobuyuki Matsui <nobuyuki.matsui@gmail.com>
