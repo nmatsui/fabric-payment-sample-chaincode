@@ -6,7 +6,7 @@ import (
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	sc "github.com/hyperledger/fabric/protos/peer"
 
-	"github.com/nmatsui/fabric-payment-sample/contracts"
+	"github.com/nmatsui/fabric-payment-sample-chaincode/contracts"
 )
 
 var logger = shim.NewLogger("main")

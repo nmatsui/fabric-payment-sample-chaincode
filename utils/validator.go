@@ -7,7 +7,7 @@ import (
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 
-	"github.com/nmatsui/fabric-payment-sample/models"
+	"github.com/nmatsui/fabric-payment-sample-chaincode/models"
 )
 
 // GetAccount : get an account from no

@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/nmatsui/fabric-payment-sample/types"
+	"github.com/nmatsui/fabric-payment-sample-chaincode/types"
 )
 
 type AccountState struct {

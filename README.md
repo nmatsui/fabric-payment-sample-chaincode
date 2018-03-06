@@ -1,4 +1,4 @@
-# fabric-payment-sample
+# fabric-payment-sample-chaincode
 ## Description
 TBD
 
