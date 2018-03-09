@@ -1,3 +1,10 @@
+/*
+ Package contracts provides the smart contracts for Hyperledger/fabric 1.1.
+
+ Copyright Nobuyuki Matsui<nobuyuki.matsui>.
+
+ SPDX-License-Identifier: Apache-2.0
+*/
 package contracts
 
 import (
@@ -19,11 +26,11 @@ type historyType struct {
 	IsDelete  bool                   `json:"is_delete"`
 }
 
-// HistoryContract : a struct which has the methods related to query Histories
+// HistoryContract : a struct to query Histories
 type HistoryContract struct {
 }
 
-// ListHistory : return all histories of a contract
+// ListHistory : return all histories of a state object.
 func (hc *HistoryContract) ListHistory(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	historyLogger.Infof("invoke ListHistory, args=%s\n", args)
 	if len(args) != 1 {

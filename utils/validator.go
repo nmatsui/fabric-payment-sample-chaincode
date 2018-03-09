@@ -1,3 +1,10 @@
+/*
+ Package utils provides some utility functions.
+
+ Copyright Nobuyuki Matsui<nobuyuki.matsui>.
+
+ SPDX-License-Identifier: Apache-2.0
+*/
 package utils
 
 import (
@@ -10,7 +17,7 @@ import (
 	"github.com/nmatsui/fabric-payment-sample-chaincode/models"
 )
 
-// GetAccount : get an account from no
+// GetAccount : get an account from state db using account no.
 func GetAccount(APIstub shim.ChaincodeStubInterface, no string) (*models.Account, error) {
 	var account = new(models.Account)
 	accountBytes, err := APIstub.GetState(no)

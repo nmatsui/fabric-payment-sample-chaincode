@@ -1,3 +1,10 @@
+/*
+ Package utils provides some utility functions.
+
+ Copyright Nobuyuki Matsui<nobuyuki.matsui>.
+
+ SPDX-License-Identifier: Apache-2.0
+*/
 package utils
 
 import (
@@ -5,7 +12,8 @@ import (
 	"fmt"
 )
 
-// WarningResult : use this type when chaincode was invoked successfully but the expected result did not obtained
+// WarningResult : a struct implements Error Interface.
+//    use this type when chaincode was invoked successfully but the expected result did not obtained
 type WarningResult struct {
 	StatusCode int    `json:"status_code"`
 	Message    string `json:"message"`

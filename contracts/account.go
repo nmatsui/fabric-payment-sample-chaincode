@@ -1,3 +1,10 @@
+/*
+ Package contracts provides the smart contracts for Hyperledger/fabric 1.1.
+
+ Copyright Nobuyuki Matsui<nobuyuki.matsui>.
+
+ SPDX-License-Identifier: Apache-2.0
+*/
 package contracts
 
 import (
@@ -14,11 +21,11 @@ import (
 
 var accountLogger = shim.NewLogger("contracts/account")
 
-// AccountContract : a struct which has the methods related to manage Account
+// AccountContract : a struct to handle Account.
 type AccountContract struct {
 }
 
-// ListAccount : return a list of all accounts
+// ListAccount : return a list of all accounts.
 func (ac *AccountContract) ListAccount(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	accountLogger.Infof("invoke ListAccount, args=%s\n", args)
 	if len(args) != 0 {
@@ -68,7 +75,7 @@ func (ac *AccountContract) ListAccount(APIstub shim.ChaincodeStubInterface, args
 	return shim.Success(jsonBytes)
 }
 
-// CreateAccount : create a new account
+// CreateAccount : create a new account.
 func (ac *AccountContract) CreateAccount(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	accountLogger.Infof("invoke CreateAccount, args=%s\n", args)
 	if len(args) != 1 {
@@ -102,7 +109,7 @@ func (ac *AccountContract) CreateAccount(APIstub shim.ChaincodeStubInterface, ar
 	return shim.Success(jsonBytes)
 }
 
-// RetrieveAccount : return an account
+// RetrieveAccount : return an account.
 func (ac *AccountContract) RetrieveAccount(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	accountLogger.Infof("invoke RetrieveAccount, args=%s\n", args)
 	if len(args) != 1 {
@@ -131,7 +138,7 @@ func (ac *AccountContract) RetrieveAccount(APIstub shim.ChaincodeStubInterface, 
 	return shim.Success(jsonBytes)
 }
 
-// UpdateAccountName : update the name of an account
+// UpdateAccountName : update the name of an account.
 func (ac *AccountContract) UpdateAccountName(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	accountLogger.Infof("invoke UpdateAccountName, args=%s\n", args)
 	if len(args) != 2 {
@@ -168,7 +175,7 @@ func (ac *AccountContract) UpdateAccountName(APIstub shim.ChaincodeStubInterface
 	return shim.Success(jsonBytes)
 }
 
-// DeleteAccount : delete an account
+// DeleteAccount : delete an account.
 func (ac *AccountContract) DeleteAccount(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	accountLogger.Infof("invoke DeleteAccount, args=%s\n", args)
 	if len(args) != 1 {

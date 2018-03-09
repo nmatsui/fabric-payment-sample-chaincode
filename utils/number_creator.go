@@ -1,3 +1,10 @@
+/*
+ Package utils provides some utility functions.
+
+ Copyright Nobuyuki Matsui<nobuyuki.matsui>.
+
+ SPDX-License-Identifier: Apache-2.0
+*/
 package utils
 
 import (
@@ -36,6 +43,7 @@ func getRandomString(n int, letterBytes string) string {
 	return string(b)
 }
 
+// GetAccountNo : return a unique Account No.
 func GetAccountNo(APIstub shim.ChaincodeStubInterface) (string, error) {
 	var no string
 	for {
@@ -53,6 +61,7 @@ func GetAccountNo(APIstub shim.ChaincodeStubInterface) (string, error) {
 	return no, nil
 }
 
+// GetEventNo : return a unique Event No.
 func GetEventNo(APIstub shim.ChaincodeStubInterface) (string, error) {
 	var no string
 	for {

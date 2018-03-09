@@ -1,3 +1,10 @@
+/*
+ Package types provides the enum like type.
+
+ Copyright Nobuyuki Matsui<nobuyuki.matsui>.
+
+ SPDX-License-Identifier: Apache-2.0
+*/
 package types
 
 import (

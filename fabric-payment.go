@@ -1,3 +1,10 @@
+/*
+ Package main provides the entrypoint of this chaincode.
+
+ Copyright Nobuyuki Matsui<nobuyuki.matsui>.
+
+ SPDX-License-Identifier: Apache-2.0
+*/
 package main
 
 import (
@@ -15,14 +22,17 @@ var accountContract = new(contracts.AccountContract)
 var eventContract = new(contracts.EventContract)
 var historyContract = new(contracts.HistoryContract)
 
+// EntryPoint : a struct to hadle shim.Chaincode interface.
 type EntryPoint struct {
 }
 
+// Init : implementation for shim.Chaincode interface.
 func (s *EntryPoint) Init(APIstub shim.ChaincodeStubInterface) sc.Response {
 	logger.Info("instantiated chaincode")
 	return shim.Success(nil)
 }
 
+// Invoke : implementation for shim.Chaincode interface.
 func (s *EntryPoint) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response {
 	function, args := APIstub.GetFunctionAndParameters()
 

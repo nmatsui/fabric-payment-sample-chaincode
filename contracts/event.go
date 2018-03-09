@@ -1,3 +1,10 @@
+/*
+ Package contracts provides the smart contracts for Hyperledger/fabric 1.1.
+
+ Copyright Nobuyuki Matsui<nobuyuki.matsui>.
+
+ SPDX-License-Identifier: Apache-2.0
+*/
 package contracts
 
 import (
@@ -14,11 +21,11 @@ import (
 
 var eventLogger = shim.NewLogger("contracts/event")
 
-// EventContract : a struct which has the methods related to event
+// EventContract : a struct to handle Event.
 type EventContract struct {
 }
 
-// ListEvent : return a list of all events
+// ListEvent : return a list of events.
 func (ec *EventContract) ListEvent(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	eventLogger.Infof("invoke ListEvent, args=%s\n", args)
 	if len(args) > 1 {
@@ -83,7 +90,7 @@ func (ec *EventContract) ListEvent(APIstub shim.ChaincodeStubInterface, args []s
 	return shim.Success(jsonBytes)
 }
 
-// Deposit : deposit amount to an account
+// Deposit : deposit to an account.
 func (ec *EventContract) Deposit(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	eventLogger.Infof("invoke Deposit, args=%s\n", args)
 	if len(args) != 2 {
@@ -164,7 +171,7 @@ func (ec *EventContract) Deposit(APIstub shim.ChaincodeStubInterface, args []str
 	return shim.Success(eventBytes)
 }
 
-// Remit : remit amount from an account to another account
+// Remit : remit from an account to another account
 func (ec *EventContract) Remit(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	eventLogger.Infof("invoke Remit, args=%s\n", args)
 	if len(args) != 3 {
@@ -285,7 +292,7 @@ func (ec *EventContract) Remit(APIstub shim.ChaincodeStubInterface, args []strin
 	return shim.Success(eventBytes)
 }
 
-// Withdraw : withdraw amount from an account
+// Withdraw : withdraw from an account
 func (ec *EventContract) Withdraw(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	eventLogger.Infof("invoke Withdraw, args=%s\n", args)
 	if len(args) != 2 {
